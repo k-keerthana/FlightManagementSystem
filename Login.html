@@ -12,23 +12,28 @@
 	}
 	.footer
 	{
- 		padding: 20px; 
+ 	    padding:10px; 
   		text-align: center; 
-  		background-color: white;
 	}
+	body{
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  }
 button 
 	{   
-       background-color: #4CAF50;   
-       width: 5%;  
-        color: orange;   
+       background-color: green;   
+       width: 10%;  
+        color: white;   
         padding: 10px;   
-        margin: 10px 0px;   
+        margin: 5px 0px;   
         border: none;   
         cursor: pointer;   
     }   
  	form 
  	{   
-        border: 3px solid #f1f1f1;   
+        border: 3px solid green;   
     }   
  	input[type=text], input[type=password] 
  	{   
@@ -43,22 +48,33 @@ button
  	{   
         opacity: 0.7;   
     }   
-  	.cancelbtn 
-  	{   
-        width: auto;   
-        padding: 10px 18px;  
-        margin: 10px 5px;  
-    }   
-        
-     
- 	.container 
- 	{   
-        padding: 25px;   
-        background-color: white;  
-    }   
+  	.cancelbtn{
+    padding:10px 10px;
+    background-color: #f44336;
+}	
+.cancelbtn,.signupbtn{
+float:left;
+width:10%;
+}
+.container {
+  padding: 8px;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+@media screen and (max-width: 100px) {
+  .cancelbtn, .signupbtn {
+     width: 50%;
+  }
+  }
+
+	
 	</style>
 </head>
 <body bgcolor="white" width=10000 height=1000>
+<marquee><h1><b>FLIGHT MANAGEMENT SYSTEM!!</b></h1></marquee>
 <center><div class="header">
 <a href="About.html">About Us</a>|
 <a href="Registration.html">Register</a>|
@@ -68,13 +84,26 @@ button
 <a href="Modify.html">Modify Booking</a>|
 <a href="Contactus.html">Contact Us</a>
 </div></center>
-<center><h2 font color="red">Login Page</h2></center>
+<center><h2>Login Page</h2></center>
  	<!-----------------form-------------->
-    <form >  
+<script>  
+function validateform(){  
+var name=document.forms["myForm"]["username"].value;  
+var password=document.forms["myForm"]["password"].value; 
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }  
+}  
+</script>  
+    <form name="myForm" action="C:\Flight Management System\TicketBooking.html" onsubmit="return validateform()" method="post">  
         <div class="container">   
-            <label for="email">E-mail : </label>   
-            <input type="email" placeholder="Email" name="username" required> <br>
-            <label>Password : </label>   
+            <label for="username"><b>Username : </b></label>   
+            <input type="text" placeholder="Username" name="username" required><br>
+            <label><b>Password : </b></label>   
             <input type="password" placeholder="Enter Password" name="password" required>  <br>
             <button type="submit">Login</button>
             <button type="button" class="cancelbtn"> Cancel</button>   <br>
@@ -84,12 +113,14 @@ button
         </div>   
     </form>   
 
+     
+
 
     <!-------------footer------------------>  
 
 
-	<div class="footer">
+	<b><div class="footer">
   		&COPY:Copyright 2020 by Keerthana Kannan
-	</div>
+	</b></div>
 	
 </body>

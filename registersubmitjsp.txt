@@ -1,0 +1,89 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+<title>Registration Page</title>
+	<style>
+	.header 
+	{
+		padding: 20px; 
+    	text-align: center;
+    	background-color: cyan;
+    	color: red;
+	}
+	.footer
+	{
+ 		padding: 20px; 
+  		text-align: center; 
+  		background-color: white;
+	}
+button 
+	{   
+       background-color: #FCF7DE;   
+       width: 20%;  
+        color: orange;   
+        padding: 10px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+    }   
+    table,th,td{
+        border:1px solid black;
+        border-collapse: collapse;
+        text-align:center;
+        padding:15px;
+    }
+	</style>
+</head>
+<body bgcolor="bisque" width=10000 height=1000>
+<center><div class="header">
+<a href="About.html">About Us</a>|
+<a href="registration">Register</a>|
+<a href="login">Login</a>|
+<a href="TicketBooking.html">Book Tickets</a>|
+<a href="BookingHistory.html">View Booking History</a>|
+<a href="Modify.html">Modify Booking</a>|
+<a href="Contactus.html">Contact Us</a>
+</div></center>
+<!----------------------------------SIGN UP--------------------------------------------------------------->
+
+
+	
+	
+	  
+	    
+                <h1><center><tr>Form Details</tr></center></h1>
+	      <hr>
+          
+          <!-- Make this page th and tr - to get table -->    
+          <table>
+              <tr><td><label for="name"><b>Name : </b></label></td>
+              <td><%String name = request.getAttribute("username").toString();%>
+                  <%=name%></td>
+              </tr>
+                  
+                  
+              <tr><td><label for="email"><b>Email : </b></label></td>
+	      <td><%String email = request.getAttribute("email").toString();%>
+                  <%=email%></td>
+              </tr>
+              
+               
+              
+              <tr><td><label><b>Gender: </b></label></td>
+            <td><%String gender = request.getAttribute("gender").toString();%>
+            <%=gender%></td>
+              </tr>
+            
+          </table>
+	    
+  
+
+
+<!-----------------------------------FOOTER---------------------------------------------------------------->
+	<div class="footer">
+  		&COPY:Copyright 2020 by Keerthana Kannan
+	</div>
+	
+</body>
+</html>

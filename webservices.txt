@@ -1,0 +1,13 @@
+@WebService(serviceName = "FlightService")
+public class FlightService {
+
+    /**
+     * This is a sample web service operation
+     */
+     @WebMethod(operationName = "Display")
+    public String DisplayInformation(@WebParam(name = "Name") String Name, @WebParam(name = "Email") String Email, @WebParam(name = "Address") String Address, @WebParam(name = "Gender") String Gender) {
+        //TODO write your implementation code here:
+        return "Name is " + Name + "\n Email is "+Email+ "\n Address is "+Address+"\n Your Gender is "+Gender;
+    }
+   
+}

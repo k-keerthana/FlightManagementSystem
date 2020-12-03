@@ -12,13 +12,70 @@
 	}
 	.footer
 	{
- 		padding: 20px; 
+ 		padding: 10px; 
   		text-align: center; 
   		background-color: white;
 	}
+	body{
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  }
+button 
+	{   
+       background-color: green;   
+       width: 10%;  
+        color: white;   
+        padding: 10px;   
+        margin: 5px 0px;   
+        border: none;   
+        cursor: pointer;   
+    }  
+	form 
+ 	{   
+        border: 3px solid green;   
+    }   
+ 	input[type=text], input[type=password] 
+ 	{   
+        width: 15%;   
+        margin: 8px 0;  
+        padding: 1px;   
+        display: inline-block;   
+        border: 2px solid green;   
+        box-sizing: border-box;   
+    }  
+ 	button:hover 
+ 	{   
+        opacity: 0.7;   
+    }   
+.cancelbtn{
+    padding:10px 10px;
+    background-color: #f44336;
+}	
+.cancelbtn,.signupbtn{
+float:left;
+width:10%;
+}
+.container {
+  padding: 8px;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+  }
+  
+
 	</style>
 </head>
 <body bgcolor="white" width=10000 height=1000>
+<marquee><h1><b>FLIGHT MANAGEMENT SYSTEM!!</b></h1></marquee>
 <center><div class="header">
 <a href="About.html">About Us</a>|
 <a href="Registration.html">Register</a>|
@@ -32,45 +89,75 @@
 
 
 	
-
 	
-	  <form class="modal-content" action="/action_page.php">
+	  <form name="myForm" action="C:\Flight Management System\Login.html" onsubmit="return validateform()" method="post" class="modal-content">
 	    <div class="container">
-	      <h1>Sign Up</h1>
-	      <p>Please fill in this form to create an account.</p>
+	      <h1><center>Sign Up</center></h1>
 	      <hr>
-	      <label for="email"><b>Email</b></label>
+              <label for="name"><b>Enter your Name : </b></label>
+	      <input type="text" placeholder="Enter your Name" name="username" required><br><br>
+
+	      <label for="email"><b>Email : </b></label>
 	      <input type="text" placeholder="Enter Email" name="email" required><br><br>
+               
+        
+        <label><b>Gender: </b></label>
+        <input class="form-control" type="radio" name="gender" id="male" value="male" />
+        <label for="male">Male</label>
+        <input class="form-control" type="radio" name="gender" id="female" value="female" />
+        <label for="female">Female</label> <br><br>
+    
+        
 
-	      <label for="psw"><b>Password</b></label>
-	      <input type="password" placeholder="Enter Password" name="psw" required><br><br>
+	      <label for="psw"><b>Password : </b></label>
+	      <input type="password" placeholder="Enter Password" name="password" required><br><br>
 
-	      <label for="psw-repeat"><b>Repeat Password</b></label>
-	      <input type="password" placeholder="Repeat Password" name="psw-repeat" required><br><br>
+	      <label for="psw-repeat"><b>Enter Password again : </b></label>
+	      <input type="password" placeholder="Enter Password again" name="password-repeat" required><br><br>
 	      
 	      <label>
 	        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
 	      </label>
 
-	      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
 	      <div class="clearfix">
-	        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
 	        <button type="submit" class="signupbtn">Sign Up</button>
+	        <button type="submit" class="cancelbtn">Cancel</button>
 	      </div>
 	    </div>
   </form>
 </div>
 <script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+function validateform(){  
+var name = document.forms["myForm"]["username"].value;  
+var password = document.forms["myForm"]["password"].value; 
+var email = document.forms["myForm"]["email"].value; 
+var password_repeat = document.forms["myForm"]["password-repeat"].value; 
+var gender = document.forms["myForm"]["gender"].value;
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
 }
+
+else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+} else if(password_repeat != password) {
+  alert("Passwords do not match");  
+  return false;  
+} else if (email != null || email != "") {
+
+	if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+		{
+			return (true)
+		}
+    alert("You have entered an invalid email address!")
+    return (false)	
+} else if (gender === null || gender !== "") {
+	alert("Please select gender");
+	return (false);	
+}
+}
+
 </script>
 <!-----------------------------------FOOTER---------------------------------------------------------------->
 	<div class="footer">

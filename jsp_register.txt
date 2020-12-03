@@ -1,0 +1,126 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+<title>Registration Page</title>
+	<style>
+	.header 
+	{
+		padding: 20px; 
+    	text-align: center;
+    	background-color: cyan;
+    	color: red;
+	}
+	.footer
+	{
+ 		padding: 20px; 
+  		text-align: center; 
+  		background-color: white;
+	}
+	body{
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  }
+button 
+	{   
+       background-color: #FCF7DE;   
+       width: 20%;  
+        color: orange;   
+        padding: 10px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+    }   
+	</style>
+</head>
+<body bgcolor="white" width=10000 height=1000>
+<center><div class="header">
+<a href="About.html">About Us</a>|
+<a href="registration">Register</a>|
+<a href="login">Login</a>|
+<a href="TicketBooking.html">Book Tickets</a>|
+<a href="BookingHistory.html">View Booking History</a>|
+<a href="Modify.html">Modify Booking</a>|
+<a href="Contactus.html">Contact Us</a>
+</div></center>
+<script>
+function validateform(){  
+var name = document.forms["myForm"]["username"].value;  
+var password = document.forms["myForm"]["password"].value; 
+var email = document.forms["myForm"]["email"].value; 
+var password_repeat = document.forms["myForm"]["password-repeat"].value; 
+var gender = document.forms["myForm"]["gender"].value;
+
+if (name===null || name===""){  
+  alert("Name can't be blank");  
+  return false;  
+}
+else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+} else if(password_repeat !== password) {
+  alert("Passwords do not match");  
+  return false;  
+} else if (email !== null || email !== "") {
+
+	if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+		{
+			return (true);
+		}
+    alert("You have entered an invalid email address!");
+    return (false);	
+} else if (gender === null || gender !== "") {
+	alert("Please select gender");
+	return (false);	
+}
+}
+
+</script>
+
+<!----------------------------------SIGN UP--------------------------------------------------------------->
+
+<form name="myForm" action="registerSubmit" onsubmit="return validateform()" method="post" class="modal-content">
+    <div class="container">
+	      <h1><center>Sign Up</center></h1>
+	      <hr>
+              <label for="name"><b>Enter your Name : </b></label>
+	      <input type="text" placeholder="Enter your Name" name="username" required><br><br>
+
+	      <label for="email"><b>Email : </b></label>
+	      <input type="text" placeholder="Enter Email" name="email" required><br><br>
+               
+        
+        <label><b>Gender: </b></label>
+        <input class="form-control" type="radio" name="gender" id="male" value="Male" />
+        <label for="male">Male</label>
+        <input class="form-control" type="radio" name="gender" id="female" value="Female" />
+        <label for="female">Female</label> <br><br>
+    
+        
+
+	      <label for="psw"><b>Password : </b></label>
+	      <input type="password" placeholder="Enter Password" name="password" required><br><br>
+
+	      <label for="psw-repeat"><b>Enter Password again : </b></label>
+	      <input type="password" placeholder="Enter Password again" name="password-repeat" required><br><br>
+	      
+	      <label>
+	        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+	      </label>
+
+	      <div class="clearfix">
+	        <button type="submit" class="signupbtn">Sign Up</button>
+	        <button type="submit" class="cancelbtn">Cancel</button>
+	      </div>
+	    </div>
+  </form>
+</div>
+<!-----------------------------------FOOTER---------------------------------------------------------------->
+	<div class="footer">
+  		&COPY:Copyright 2020 by Keerthana Kannan
+	</div>
+	
+</body>
+</html>
